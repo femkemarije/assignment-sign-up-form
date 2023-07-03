@@ -13,7 +13,13 @@
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
       "<rootDir>/setup-jest.ts"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^@account/data-access$": "<rootDir>/src/app/account/data-access",
+      "^@core/auth/data-access$": "<rootDir>/src/app/core/auth/data-access",
+      "^@core/auth/constants$": "<rootDir>/src/app/core/auth/constants",
+      "^@core/auth/validators$": "<rootDir>/src/app/core/auth/validators"
+    }
   },
   "private": true,
   "dependencies": {

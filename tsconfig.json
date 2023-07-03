@@ -19,16 +19,20 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "paths": {
-      "@core/auth/*": ["src/app/core/auth/index.ts"],
-      "@core/auth/components/*": ["src/app/core/auth/components/index.ts"],
-      "@account/feature-account-sign-up/*": ["src/app/account/feature-account-sign-up/*"],
+      "@account/data-access": [
+        "src/app/account/data-access/index.ts"
+      ],
+      "@account/feature-account-sign-up/*": [
+        "src/app/account/feature-account-sign-up/*"
+      ],
+      "@assets/*": ["src/assets"],
       "@home/feature-home/*": ["src/app/home/feature-home/*"],
-      "@assets/*": ["src/assets/*"],
+      "@core/auth/data-access": ["src/app/core/auth/data-access/index.ts"],
+      "@core/auth/constants": ["src/app/core/auth/constants/index.ts"],
+      "@core/auth/types": ["src/app/core/auth/types/index.ts"],
+      "@core/auth/validators": ["src/app/core/auth/validators/index.ts"]
     }
   },
   "angularCompilerOptions": {

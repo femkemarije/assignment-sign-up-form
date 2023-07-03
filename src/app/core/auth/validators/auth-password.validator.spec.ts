@@ -1,5 +1,5 @@
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { authPasswordValidator } from './auth-password-validator';
+import { authPasswordValidator } from './auth-password.validator';
 
 describe(authPasswordValidator.name, () => {
   let validator: (group: FormGroup) => ValidationErrors | null;

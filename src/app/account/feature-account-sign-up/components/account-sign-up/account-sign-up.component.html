@@ -52,10 +52,12 @@
         Password should contain lower and uppercase letters.
       </div>
       <div *ngIf="signUpForm.errors?.['password']">
-        Password should not contain the first name or the last name.
+        Password should not contain the first- or the last name.
       </div>
     </div>
   </div>
 
-  <button class="button" type="submit">Sign Up</button>
+  <button class="button" type="submit">
+    {{ (loading$ | async) ? 'Loading...' : 'Sign Up' }}
+  </button>
 </form>

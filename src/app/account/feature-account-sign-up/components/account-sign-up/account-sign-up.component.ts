@@ -7,13 +7,15 @@ import {
   Validators,
 } from '@angular/forms';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, finalize, map, Observable } from 'rxjs';
 import { SignUpFormGroup } from '../../interfaces/account-sign-up-form.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
-  authPasswordValidator,
   PASSWORD_MIN_LENGTH,
   PASSWORD_UPPER_LOWER_CASE_PATTERN,
-} from '@core/auth/*';
+} from '@core/auth/constants';
+import { authPasswordValidator } from '@core/auth/validators';
+import { AccountService } from '@account/data-access';
 
 @Component({
   selector: 'fx-account-sign-up',
@@ -26,7 +28,14 @@ export class AccountSignUpComponent {
   signUpForm: FormGroup<SignUpFormGroup> = this.initializeSignUpForm();
   fullName$: Observable<string> = this.listenToFullNameChanges();
 
-  constructor(private formBuilder: FormBuilder) {}
+  loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private accountService: AccountService
+  ) {}
 
   get firstName(): FormControl<string> {
     return this.signUpForm.controls.firstName;
@@ -49,7 +58,21 @@ export class AccountSignUpComponent {
       return;
     }
 
-    // Todo: submit sign up form
+    this.loading$.next(true);
+
+    this.accountService
+      .signUpUser(this.firstName.value, this.lastName.value, this.email.value)
+      .pipe(finalize(() => this.loading$.next(false)))
+      .subscribe({
+        next: () => this.navigateTo('./success'),
+        error: () => this.navigateTo('./failure'),
+      });
+  }
+
+  private navigateTo(path: string): void {
+    this.router.navigate([path], {
+      relativeTo: this.activatedRoute,
+    });
   }
 
   private initializeSignUpForm(): FormGroup<SignUpFormGroup> {
