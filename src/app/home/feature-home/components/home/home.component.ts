@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'fx-header',
+  selector: 'fx-home',
   standalone: true,
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
   imports: [RouterLink],
 })
-export class HeaderComponent {}
+export class HomeComponent {}

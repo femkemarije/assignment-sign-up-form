@@ -7,22 +7,22 @@ import {
   Validators,
 } from '@angular/forms';
 import { AsyncPipe, NgIf } from '@angular/common';
+import { map, Observable } from 'rxjs';
+import { SignUpFormGroup } from '../../interfaces/account-sign-up-form.interface';
 import {
+  authPasswordValidator,
   PASSWORD_MIN_LENGTH,
   PASSWORD_UPPER_LOWER_CASE_PATTERN,
-} from '../../core/auth/constants/auth-password.constant';
-import { authPasswordValidator } from '../../core/auth/validators/auth-password-validator';
-import { map, Observable } from 'rxjs';
-import { SignUpFormGroup } from './interfaces/sign-up-form.interface';
+} from '@core/auth/*';
 
 @Component({
-  selector: 'fx-feature-sign-up',
+  selector: 'fx-account-sign-up',
   standalone: true,
   imports: [ReactiveFormsModule, NgIf, AsyncPipe],
-  templateUrl: './feature-sign-up.component.html',
-  styleUrls: ['./feature-sign-up.component.scss'],
+  templateUrl: './account-sign-up.component.html',
+  styleUrls: ['./account-sign-up.component.scss'],
 })
-export class FeatureSignUpComponent {
+export class AccountSignUpComponent {
   signUpForm: FormGroup<SignUpFormGroup> = this.initializeSignUpForm();
   fullName$: Observable<string> = this.listenToFullNameChanges();
 

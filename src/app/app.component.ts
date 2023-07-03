@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FeatureSignUpComponent } from './sign-up/feature-sign-up/feature-sign-up.component';
-import { HeaderComponent } from "./core/components/header/header.component";
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './core/components';
 
 @Component({
   selector: 'fx-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [FeatureSignUpComponent, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent],
 })
 export class AppComponent {}

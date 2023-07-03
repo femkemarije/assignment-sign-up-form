@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -23,7 +22,14 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@core/auth/*": ["src/app/core/auth/index.ts"],
+      "@core/auth/components/*": ["src/app/core/auth/components/index.ts"],
+      "@account/feature-account-sign-up/*": ["src/app/account/feature-account-sign-up/*"],
+      "@home/feature-home/*": ["src/app/home/feature-home/*"],
+      "@assets/*": ["src/assets/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
