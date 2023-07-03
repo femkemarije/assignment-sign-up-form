@@ -1,0 +1,16 @@
+.header {
+  background: #4d148c;
+  width: 100%;
+  margin-bottom: 4rem;
+
+  &-wrapper {
+    width: 970px;
+    margin: 0 auto;
+
+    img {
+      display: flex;
+      height: 1.5rem;
+      padding: 1rem;
+    }
+  }
+}
