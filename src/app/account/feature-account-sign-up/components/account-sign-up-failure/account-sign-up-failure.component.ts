@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,5 +7,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './account-sign-up-failure.component.html',
   styleUrls: ['./account-sign-up-failure.component.scss'],
   imports: [RouterLink],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountSignUpFailureComponent {}

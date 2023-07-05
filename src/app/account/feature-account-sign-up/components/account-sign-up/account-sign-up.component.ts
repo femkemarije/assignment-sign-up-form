@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -23,6 +23,7 @@ import { AccountService } from '@account/data-access';
   imports: [ReactiveFormsModule, NgIf, AsyncPipe],
   templateUrl: './account-sign-up.component.html',
   styleUrls: ['./account-sign-up.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountSignUpComponent {
   signUpForm: FormGroup<SignUpFormGroup> = this.initializeSignUpForm();
